@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b57a8fhm45ium"]
+
+[ext_resource type="Texture2D" uid="uid://iyh30hlppwue" path="res://icon.svg" id="1_t5fbi"]
+[ext_resource type="Script" path="res://rest_point.gd" id="1_thlic"]
+
+[node name="RestPoint" type="Marker2D"]
+script = ExtResource("1_thlic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 2
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("1_t5fbi")

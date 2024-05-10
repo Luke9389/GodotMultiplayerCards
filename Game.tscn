@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0db2yrl4o8vo"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_hj5ju"]
+[ext_resource type="Script" path="res://battlefield.gd" id="2_4mvb1"]
+[ext_resource type="PackedScene" uid="uid://b57a8fhm45ium" path="res://RestPoint.tscn" id="3_6ypki"]
+[ext_resource type="PackedScene" uid="uid://bctr6yksaap6q" path="res://Card.tscn" id="4_4a4ln"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_hj5ju")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 1041.0
+offset_bottom = 399.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Status" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="MessagesFromServer" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="SendMessage" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SEND MESSAGE"
+
+[node name="Battlefield" type="Node2D" parent="."]
+script = ExtResource("2_4mvb1")
+
+[node name="RestPoint" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(243, 1421)
+battlefield_id = 1
+
+[node name="RestPoint2" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(543, 1421)
+battlefield_id = 2
+
+[node name="RestPoint3" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(845, 1419)
+battlefield_id = 3
+
+[node name="RestPoint4" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(239, 1135)
+battlefield_id = 4
+
+[node name="RestPoint5" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(540, 1134)
+battlefield_id = 5
+
+[node name="RestPoint6" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(844, 1137)
+battlefield_id = 6
+
+[node name="RestPoint7" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(237, 840)
+battlefield_id = 7
+
+[node name="RestPoint8" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(542, 841)
+battlefield_id = 8
+
+[node name="RestPoint9" parent="Battlefield" instance=ExtResource("3_6ypki")]
+position = Vector2(839, 842)
+battlefield_id = 9
+
+[node name="Card" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(206, 1693)
+fighter_type = 1
+id = 1
+metadata/_edit_group_ = true
+
+[node name="Card2" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(373, 1693)
+id = 2
+metadata/_edit_group_ = true
+
+[node name="Card3" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(539, 1695)
+fighter_type = 2
+id = 3
+metadata/_edit_group_ = true
+
+[node name="Card4" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(706, 1695)
+fighter_type = 1
+id = 4
+metadata/_edit_group_ = true
+
+[node name="Card5" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(871, 1696)
+id = 5
+metadata/_edit_group_ = true
+
+[node name="Card6" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(170, 573)
+fighter_type = 2
+id = 6
+metadata/_edit_group_ = true
+
+[node name="Card7" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(354, 572)
+fighter_type = 2
+id = 7
+metadata/_edit_group_ = true
+
+[node name="Card8" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(526, 572)
+fighter_type = 1
+id = 8
+metadata/_edit_group_ = true
+
+[node name="Card9" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(717, 569)
+id = 9
+metadata/_edit_group_ = true
+
+[node name="Card10" parent="Battlefield" instance=ExtResource("4_4a4ln")]
+position = Vector2(892, 569)
+fighter_type = 2
+id = 10
+metadata/_edit_group_ = true
+
+[connection signal="pressed" from="Panel/VBoxContainer/SendMessage" to="." method="_send_message_to_server"]
